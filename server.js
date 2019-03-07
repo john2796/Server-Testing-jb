@@ -1,26 +1,20 @@
-const express = require("express");
-const helmet = require("helment");
-const logger = require("morgan")
-const cors = require("cors")
+
+const express = require('express');
+const helmet = require('helmet');
+const logger = require('morgan');
+const cors = require('cors');
+
 const server = express();
 
+const students = require('./students/student-route');
 
-
-//middleware
+// middleware
 server.use(express.json());
 server.use(cors());
 server.use(helmet());
 server.use(logger('dev'));
 
+server.use('/api/students', students);
 
 
-// for heroku
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`
-  ---------------------------------------------------------------
-          server is listening on port ${PORT}
-  ---------------------------------------------------------------
-                    
-  `)
-})
+module.exports = server;
