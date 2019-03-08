@@ -127,7 +127,7 @@ describe('------------------------------- PUT ROUTE-----------------------------
     const response = await request(server).get('/api/students/3');
     expect(response.body.name).toBe('new name');
   });
-  //------------------------------------------------------------------------------------
+  // ------ ------------------------------------------------------------------------------
   // it('[ PUT 403 ] should return 403 if user is not logged in', async () => {
   //   await request(server).post('/api/students/').send({
   //     name: 'mikko',
